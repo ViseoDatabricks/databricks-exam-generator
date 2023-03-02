@@ -11,7 +11,7 @@ st.sidebar.write("You can generate a new exam from here. "
 db_lakehouse_nbq = st.sidebar.slider('Databricks Lakehouse Platform', 0, 25, settings.get_started_with_databricks_workspace_nb_questions, key=1)
 manage_data_delta_lake_nbq = st.sidebar.slider('Manage data with Delta Lake', 0, 25, settings.manage_data_with_delta_lake_nb_questions, key=2)
 elt_spark_sql_nbq = st.sidebar.slider('ELT with Spark SQL', 0, 25, settings.build_data_pipeline_with_DLT_spark_sql_nb_questions, key=3)
-elt_spark_pyspark_nbq =  st.sidebar.slider('ELT with PySpark', 0, 25, settings.build_data_pipeline_with_DLT_pyspark_nb_questions, key=4)
+elt_spark_pyspark_nbq = st.sidebar.slider('ELT with PySpark', 0, 25, settings.build_data_pipeline_with_DLT_pyspark_nb_questions, key=4)
 transform_data_spark_sql_nbq = st.sidebar.slider('Transform data with Spark SQL', 0, 25, settings.transform_data_with_spark_sql_nb_questions, key=5)
 transform_data_pyspark_nbq = st.sidebar.slider('Transform data with PySpark', 0, 25, settings.transform_data_with_pyspark_nb_questions, key=6)
 production_pipelines_nbq = st.sidebar.slider('Production Pipelines', 0, 25, settings.deploy_workloads_with_databricks_workflows_nb_questions, key=7)
