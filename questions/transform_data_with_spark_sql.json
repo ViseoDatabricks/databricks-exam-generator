@@ -1,0 +1,302 @@
+{
+  "0": {
+    "questions": "A data engineer is using the following query to extract the calendar date and time in human readable format from the timestamp column user_last_touch_timestamp from the table users.\n\n\n\nSELECT\n*,\n_____,\nFROM users\n\nWhich of the following lines of code correctly fills in the blank by returning end_date of type date in human readable format? Select one response.\n",
+    "choices": [
+      "date_format(user_last_touch_timestamp , \"MMM d, yyyy\") AS end_date",
+      "date_time(user_last_touch_timestamp, \"HH:mm:ss\") AS end_date",
+      "date_format(user_last_touch_timestamp, \"HH:mm:ss\") AS end_date",
+      "date_time(user_last_touch_timestamp, \"MMM d, yyyy\") AS end_date",
+      "(CAST(user_last_touch_timestamp) as date_format) as end_date"
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "1": {
+    "questions": "Which of the following is an advantage of using a SQL user-defined function (UDF) over a UDF written in Python? Select one response.\n",
+    "choices": [
+      "SQL functions support adding metadata such as comments that describe the function.",
+      "SQL functions support temporary functions that can be used within the current session.",
+      "SQL functions allow communication with external network services.",
+      "SQL function bodies are transparent to the query optimizer.",
+      "SQL function declarations do not require parameter specifications."
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "2": {
+    "questions": "A data engineer has a table events that has been registered against an external JSON file. They need to access the field date within the columns of JSON strings.\n\nWhich of the following approaches can the data engineer use to accomplish this? Select one response.\n",
+    "choices": [
+      "They can use date.* to pull out the subfields of events into their own columns.",
+      "They can use . syntax to access subfields in the JSON string.",
+      "They can use : syntax to access subfields in the JSON string.",
+      "They can index the query by subfield using events[date] syntax.",
+      "They can use from_json() to parse the column into a struct type."
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "3": {
+    "questions": "A data engineer has created a user-defined function (UDF) that they want to share with a colleague.\n\nWhich permissions need to be granted to the colleague in order for them to use the UDF? Select two responses.\n",
+    "choices": [
+      "USAGE",
+      "MODIFY",
+      "SELECT",
+      "WRITE",
+      "VIEW"
+    ],
+    "expected_answers": 2,
+    "answers": []
+  },
+  "4": {
+    "questions": "A data engineer has created the following temporary view sales_revenue that joins the dataset sales with a lookup table sales_lookup when sales and sales_lookup have matching values in the sales_id column in both tables.CREATE OR REPLACE TEMP VIEW sales_revenue ASSELECT *FROM (SELECT * FROM sales) a _____ON a.sales_id = b.sales_id;\n\nWhich of the following lines of code correctly fills in the blank? Select one response.",
+    "choices": [
+      "CROSS JOIN sales_lookup b",
+      "RIGHT JOIN sales_loookup b",
+      "OUTER JOIN sales_lookup b",
+      "LEFT JOIN sales_lookup b",
+      "INNER JOIN sales_lookup b"
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "5": {
+    "questions": "Which of the following commands returns a set of records from the table customers without duplicates? Select one response.\n",
+    "choices": [
+      "SELECT DISTINCT(*) FROM customers;",
+      "SELECT * FROM customers DROP DUPLICATES;",
+      "DROP DUPLICATES FROM customers;",
+      "SELECT * FROM customers;",
+      "SELECT DISTINCT COUNT from customers;"
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "6": {
+    "questions": "A data engineer needs a reference to the results of a query that can be referenced across multiple queries within the scope of the environment session. The data engineer does not want the reference to exist outside of the scope of the environment session.\n\nWhich of the following approaches accomplishes this without explicitly dropping the data object? Select one response.\n",
+    "choices": [
+      "They can store the results of their query within a temporary view.",
+      "They can store the results of their query within a reusable user-defined function (UDF).",
+      "They can store the results of their query within a table.",
+      "They can store the results of their query within a view.",
+      "They can store the results of their query within a common table expression (CTE)."
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "7": {
+    "questions": "Which of the following queries counts null values in the column email from the table users_dirty? Select two responses.",
+    "choices": [
+      "SELECT count_if(email IS NULL) FROM users_dirty;",
+      "SELECT count(email) FROM users_dirty WHERE email IS NULL;",
+      "SELECT count(*) FROM users_dirty WHERE email IS NULL;",
+      "SELECT DISTINCT * FROM users_dirty;",
+      "SELECT * FROM users_dirty DROP DUPLICATES;"
+    ],
+    "expected_answers": 2,
+    "answers": []
+  },
+  "8": {
+    "questions": "A data engineer needs to create and register a user-defined function (UDF) CREATE_USER using the Python function createUser and apply it to array column username in the table users. They have the following lines of code:Lines of code:1. spark.sql(\"SELECT createUser(username) AS user FROM users\")2. spark.sql(\"SELECT CREATE_USER(username) AS user FROM users\")3. spark.udf.register(\"CREATE_USER\", createUser)4. spark.udf.register(createUser(username))In what order do the lines of code above need to be run in a Python session in order to accomplish this? Select one response.",
+    "choices": [
+      "2",
+      "3, 1",
+      "3, 2",
+      "4, 1",
+      "4, 2"
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "9": {
+    "questions": "A data engineer has a query that directly updates the files underlying the external table emails.\n\nWhich of the following correctly describes how to retrieve the number of rows in the updated table? Select one response.\n",
+    "choices": [
+      "REFRESH TABLE emails;<br/>SELECT COUNT(*) FROM emails AS OF VERSION 1;",
+      "REFRESH TABLE emails;<br/>SELECT COUNT(*) FROM emails;",
+      "REFRESH TABLE emails;<br/>SELECT DISTINCT_COUNT(*) FROM emails;",
+      "REFRESH TABLE emails;<br/>SELECT COUNT(*) FROM emails WHEN UPDATED = TRUE;",
+      "REFRESH TABLE emails;<br/>SELECT DISTINCT_COUNT(*) FROM emails AS OF VERSION 1;"
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "10": {
+    "questions": "A senior data engineer has registered the SQL user-defined function (UDF) create_users to be used by the rest of their team. Another data engineer wants to know where the function was registered and what the expected inputs are. Both data engineers have USAGE and SELECT privileges on create_users.\nWhich of the following commands can the second data engineer use to do this? Select two responses.\n",
+    "choices": [
+      "RETURN FUNCTION create_users;",
+      "DESCRIBE FUNCTION create_users;",
+      "DESCRIBE FUNCTION EXTENDED create_users;",
+      "DESCRIBE DETAIL create_users;",
+      "SHOW FUNCTION create_users;"
+    ],
+    "expected_answers": 2,
+    "answers": []
+  },
+  "11": {
+    "questions": "A data engineer has a table events that has been registered against an external JSON file. The nested JSON fields have already been converted into struct types. The data engineer now needs to flatten the struct fields back into individual columns for each subfield.\n\nWhich of the following approaches allows the data engineer to retrieve the subfields within the JSON string? Select one response.\n",
+    "choices": [
+      "They can use : syntax in queries to access subfields in the JSON string.",
+      "They can use . syntax in queries to access subfields in the JSON string.",
+      "They can use events.* to pull out the subfields of events into their own columns.",
+      "They can use from_json() to parse the columns for subfields.",
+      "They can index the query by subfield."
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "12": {
+    "questions": "A data engineer has the following query, where path is a variable that represents the location of a directory.\n\nQuery:\nSELECT * FROM csv.`${path}`;\n",
+    "choices": [
+      "The query streams data from a directory of CSV files into a table.",
+      "The query converts a directory of files into CSV format.",
+      "The query displays the underlying file contents of a directory of CSV files.",
+      "The query loads the contents of a directory of CSV files from a source table to a target table.",
+      "The query displays the metadata of a directory of CSV files."
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "13": {
+    "questions": "A data engineer has created a SQL query that specifies three cases in which the result returned is Pass. If none of the conditionals for the cases are met, then the query returns Fail. They need to convert this query into a reusable function.\n<br/>Which of the following approaches does the data engineer need to take in order to accomplish this? Select one response.  ",
+    "choices": [
+      "The data engineer needs to alter the query to specify one reusable function returning either Pass or Fail at the end of the query.",
+      "The data engineer needs to create a function where all three cases are combined into one case that points to Pass. An ELSE case returning Fail must be specified if all of the conditions for the case are not met.",
+      "The data engineer needs to alter the query to specify a reusable function returning Pass at the end of each case. An ELSE case returning Fail must be specified if none of the conditions for the other cases are met.",
+      "None of these responses will allow the data engineer to convert their query into a reusable function.",
+      "The data engineer needs to create a function where each case points to Pass. An ELSE case returning Fail must be specified if none of the conditions for the other cases are met."
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "14": {
+    "questions": "Which of the following statements about the difference between views and temporary views are correct? Select two responses.",
+    "choices": [
+      "Temporary views do not contain a preserved schema. Views are tied to a system preserved temporary schema global_temp.",
+      "Temporary views skip persisting the definition in the underlying metastore. Views have metadata that can be accessed in the view’s directory.",
+      "Temporary views have names that must be qualified. Views have names that must be unique.",
+      "Temporary views reside in the third layer of Unity Catalog’s three-level namespace Views lie in the metastore.",
+      "Temporary views are session-scoped and dropped when the Spark session ends. Views can be accessed after the session ends."
+    ],
+    "expected_answers": 2,
+    "answers": []
+  },
+  "15": {
+    "questions": "A data engineer is registering a table in Databricks using the table users from an external SQL database. One of their colleagues gives them the following code to register the table. However, when the data engineer runs the code, they notice an error.\n\n\nCREATE TABLE users_jdbcUSING JDBCOPTIONS ( url = \"jdbc:sqlite:${DA.paths.ecommerce_db}\")\n\nWhich of the following correctly identifies why running the code is resulting in an error? Select one response.",
+    "choices": [
+      "A username and password need to be added to OPTIONS.",
+      "USING JDBC needs to be changed to USING SQL.",
+      "The line dbtable = \"users\" needs to be added to OPTIONS.",
+      "None of these responses correctly identify the cause of the error.",
+      "CREATE TABLE needs to be changed to CREATE JDBC TABLE."
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "16": {
+    "questions": "A data engineer has created the table events with the following SQL statement:CREATE TABLE events (user_id string, event_name string, item_id string, events struct&lt;coupon:string, event_id:string, event_revenue:double&gt;);They are using the following code with multiple array transformations to return a result set that shows the unique collection of the columns event_name and items.SELECT user_id, collect_set(event_name) AS event_history, _____FROM eventsGROUP BY user_idWhich of the following lines of code fills in the blank to create the column event_history as a unique collection of events? Select one response.",
+    "choices": [
+      "flatten(collect_set(explode(events))) AS event_history",
+      "flatten(array_distinct(events))) AS event_history",
+      "array_distinct(extract(collect_set(events))) AS event_history",
+      "array_distinct(flatten(collect_set(events))) AS event_history",
+      "flatten(extract(events)) AS event_history"
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "17": {
+    "questions": "A data engineer wants to extract lines as raw strings from a text file.\n\nWhich of the following SQL commands accomplishes this task? Select one response.\n",
+    "choices": [
+      "SELECT * FROM `${dbfs:/mnt/datasets}/001.txt`;",
+      "SELECT * FROM text.`${dbfs:/mnt/datasets}/001.txt`;",
+      "SELECT (*) FROM ${dbfs:/mnt/datasets}/001.txt`;",
+      "SELECT * FROM `${dbfs:/mnt/datasets}/001.txt` as TEXT;",
+      "SELECT text(*) FROM ${dbfs:/mnt/datasets}/001.txt`;"
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "18": {
+    "questions": "A data engineer is using the following code block to create a table using an external CSV file as its source. They need to specify that the fields are separated by | and that there is a header.\n\n\nCREATE TABLE IF NOT EXISTS sales_csv\n(order_id LONG, email STRING, transactions_timestamp LONG, total_item_quantity INTEGER, purchase_revenue_in_usd DOUBLE, unique_items INTEGER, items STRING)\nUSING CSV\n_____\nLOCATION \"${dbfs:/mnt/datasets}\"\n\nWhich of the following correctly fills in the blank for the table options? Select one response.\n",
+    "choices": [
+      "KEYS (",
+      "OPTIONS (",
+      "TBLPROPERTIES (",
+      "VALUES (",
+      "COMMENTS ("
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "19": {
+    "questions": "A data engineer has a table high_temps with the following schema, where avg_high_temp represents the monthly average high temperatures for each unique year-month combination.\n\nyear string\nmonth string\navg_high_temp string\n\nThey need to reformat the data with years as the primary record key and months as the columns. The existing average high temperature value for each year-month combination needs to be in the month columns.\n\nHow can the data engineer accomplish this? Select one response.\n",
+    "choices": [
+      "The data engineer can rotate the data from wide to long format using the PIVOT clause.",
+      "The data engineer can rotate the data from long to wide format using the PIVOT clause.",
+      "The data engineer can rotate the data from wide to long format using the TRANSFORM clause.",
+      "The data engineer can rotate the data from long to wide format using the GROUP BY clause.",
+      "The data engineer can rotate the data from long to wide format using the TRANSFORM clause."
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "20": {
+    "questions": "A data engineer has a table records with a column email. They want to check if there are null values in the email column.\n\nWhich of the following approaches accomplishes this? Select one response.\n",
+    "choices": [
+      "They can check if there is at least one record where email is null by creating a data expectation to drop null values.",
+      "They can check if there is at least one record where email is null by adding a filter for when email IS NULL to a SELECT statement.",
+      "They can check if there is at least one record where email is null by pivoting the table on null values.",
+      "They can check if there is at least one record where email is null by running a regular expression function on email to filter out null values.",
+      "They can check if there is at least one record where email is null using SELECT DISTINCT records."
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "21": {
+    "questions": "Which of the following statements about querying tables defined against external sources is true? Select one response.\n",
+    "choices": [
+      "When defining tables or queries against external data sources, the storage path, external location, and storage credential are displayed for users who have been granted USAGE access to the table.",
+      "When defining tables or queries against external data sources, older cached versions of the table are automatically added to the event log.",
+      "None of these statements about external table behavior are true.",
+      "When defining tables or queries against external data sources, older cached versions of the table are automatically deleted.",
+      "When defining tables or queries against external data sources, the performance guarantees associated with Delta Lake and Lakehouse cannot be guaranteed."
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "22": {
+    "questions": "A data engineer has a table users with string column email_address. They are using a regular expression that returns a string with a matching pattern when it is in the following format:\nuser.address@domain.com\nWhich of the following lines of code creates a new column domain that contains the domain from the email_address column? Select one response.",
+    "choices": [
+      "flatten(regexp(email, \"(?&lt;=@).+\", 0)) AS domain",
+      "regexp_explode(email, \"(?&lt;=@).+\", 0) AS domain",
+      "regexp_explode(collect_set(email, \"(?&lt;=@).+\", 1)) AS domain",
+      "regexp_extract(email, \"(?&lt;=@).+\", 0) AS domain",
+      "collect_set(regexp(email, \"(?&lt;=@).+\", 1)) AS domain"
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "23": {
+    "questions": "A data engineer is using the following query to confirm that each unique string value in the phone_number column in the table users is associated with at most one user_id. When they run the query, they notice that the query is not returning the expected result.SELECT max(user_id_count) &lt;= 1 at_most_one_idFROM (  SELECT   phone_number,   count(distinct(\"user_id\")) AS user_id_count  FROM   users  GROUP BY   phone_number )\n\nWhich of the following explains why the query is not returning the expected result? Select one response.\n",
+    "choices": [
+      "A WHERE phone_number IS NOT NULL clause is needed after the FROM users line.",
+      "count(distinct(\"user_id\")) needs to be changed to count_if(user_id IS NOT NULL).",
+      "A MERGE statement on user_id_count = count(phone_number) needs to be added after the FROM users line.",
+      "count(distinct(\"user_id\")) needs to be changed to count(user_id).",
+      "A DROP DUPLICATES statement needs to be added after the FROM users line."
+    ],
+    "expected_answers": 1,
+    "answers": []
+  },
+  "24": {
+    "questions": "A data engineer needs to query a JSON file whose location is represented by the variable path.\n\nWhich of the following commands do they need to use? Select one response.\n",
+    "choices": [
+      "SHOW TABLE json.`${path}`;",
+      "SELECT * FROM path LOCATION `${path}`;",
+      "SELECT * FROM json.`${path}`;",
+      "RETURN json.`${path}`;",
+      "DISPLAY TABLE json.`${path}`;"
+    ],
+    "expected_answers": 1,
+    "answers": []
+  }
+}

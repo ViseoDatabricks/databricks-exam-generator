@@ -1,0 +1,332 @@
+{
+  "0": {
+    "questions": "A data engineer has a long-running cluster for an ETL workload. Before the next time the workload runs, they need to ensure that the image for the compute resources is up-to-date with the latest image version.\n\nWhich of the following cluster operations can be used in this situation? Select one response.\n",
+    "choices": [
+      "Terminate",
+      "Delete",
+      "Start",
+      "Restart",
+      "Edit"
+    ],
+    "expected_answers": 1,
+    "answers": 4
+  },
+  "1": {
+    "questions": "Which of the following resources reside in the control plane of a Databricks deployment? Select two responses.",
+    "choices": [
+      "Job configurations",
+      "Databricks File System (DBFS)",
+      "JDBC and SQL data sources",
+      "Notebook commands",
+      "Job scheduler"
+    ],
+    "expected_answers": 2,
+    "answers": [
+      4,
+      5
+    ]
+  },
+  "2": {
+    "questions": "Two data engineers are collaborating on one notebook in the same repository. Each is worried that if they work on the notebook at different times, they might overwrite changes that the other has made to the code within the notebook.\n\nWhich of the following explains why collaborating in Databricks Notebooks prevents these problems from occurring? Select one response.\n",
+    "choices": [
+      "Databricks Notebooks supports alerts and audit logs for easy monitoring and troubleshooting, so the data engineers will be alerted when changes are made to their code.",
+      "Databricks Notebooks are integrated into CI/CD pipelines by default, so the data engineers can work in separate branches without overwriting the other’s work.",
+      "Databricks Notebooks enforces serializable isolation levels, so the data engineers will never see inconsistencies in their data.",
+      "Databricks Notebooks automatically handles schema variations to prevent insertion of bad records during ingestion, so the data engineers will be prevented from overwriting data that does not match the table’s schema.",
+      "Databricks Notebooks supports real-time co-authoring, so the data engineers can work on the same notebook in real-time while tracking changes with detailed revision history."
+    ],
+    "expected_answers": 1,
+    "answers": 5
+  },
+  "3": {
+    "questions": "A data engineering team is working on a shared repository. Each member of the team has cloned the target repository and is working in a separate branch.\n\nWhich of the following is considered best practice for the team members to commit their changes to the centralized repository? Select one response.\n",
+    "choices": [
+      "The data engineers can each call the Databricks Repos API to submit the code changes for review before they are merged into the main branch.",
+      "The data engineers can each create a pull request to be reviewed by other members of the team before merging the code changes into the main branch.",
+      "The data engineers can each run a job based on their branch in the Production folder of the shared repository so the changes can be merged into the main branch.",
+      "The data engineers can each sync their changes with the main branch from the Git terminal, which will automatically commit their changes.",
+      "The data engineers can each commit their changes to the main branch using an automated pipeline after a thorough code review by other members of the team."
+    ],
+    "expected_answers": 1,
+    "answers": 2
+  },
+  "4": {
+    "questions": "An organization's data warehouse team is using a change data capture (CDC) feed that needs to meet the CCPA compliance standards. They are worried that their current architecture will not support this workload.\n\nWhich of the following explains how employing Delta Lake in a data lakehouse architecture addresses these concerns? Select one response.\n",
+    "choices": [
+      "Delta Lake supports merge, update and delete operations to enable complex use cases.",
+      "Delta Lake supports expectations to define expected data quality and specify how to handle records that fail those expectations.",
+      "Delta Lake supports data management for transformations based on a target schema for each processing step.",
+      "Delta Lake supports integration for experiment tracking and built-in ML best practices.",
+      "Delta Lake supports automatic logging of experiments, parameters and results from notebooks directly to MLflow."
+    ],
+    "expected_answers": 1,
+    "answers": 1
+  },
+  "5": {
+    "questions": "A data engineer is creating a multi-node cluster.\n\nWhich of the following statements describes how workloads will be distributed across this cluster? Select one response.\n",
+    "choices": [
+      "Workloads are distributed across available compute resources by the executor.",
+      "Workloads are distributed across available driver nodes by the worker node.",
+      "Workloads are distributed across available worker nodes by the executor.",
+      "Workloads are distributed across available worker nodes by the driver node.",
+      "Workloads are distributed across available memory by the executor."
+    ],
+    "expected_answers": 1,
+    "answers": 4
+  },
+  "6": {
+    "questions": "A data engineer is working on an ETL pipeline. There are several utility methods needed to run the notebook, and they want to break them down into simpler, reusable components.\n\nWhich of the following approaches accomplishes this? Select one response.\n",
+    "choices": [
+      "Create a pipeline for the utility commands and run the pipeline from within the original notebook using the %md magic command.",
+      "Create a separate job for the utility commands and run the job from within the original notebook using the %cmd magic command.",
+      "Create a separate notebook for the utility commands and use the %run magic command in the original notebook to run the notebook with the utility commands.",
+      "Create a separate notebook for the utility commands and use an import statement at the beginning of the original notebook to reference the notebook with the utility commands.",
+      "Create a separate task for the utility commands and make the notebook dependent on the task from the original notebook’s Directed Acyclic Graph (DAG)."
+    ],
+    "expected_answers": 1,
+    "answers": 3
+  },
+  "7": {
+    "questions": "A data architect is proposing that their organization migrate from a data lake to a data lakehouse. The architect claims that this will improve and simplify the work of the data engineering team.\n\nWhich of the following describes the key benefits of why migrating from a data lake to a data lakehouse will be beneficial for the data engineering team? Select two responses.\n",
+    "choices": [
+      "Data lakehouses are able to support machine learning workloads.",
+      "Data lakehouses are able to support cost-effective scaling.",
+      "Data lakehouses are able to improve query performance by managing metadata and utilizing advanced data partitioning techniques.",
+      "Data lakehouses are able to support data quality solutions like ACID-compliant transactions.",
+      "Data lakehouses are able to support programming languages like Python."
+    ],
+    "expected_answers": 2,
+    "answers": [
+      3,
+      4
+    ]
+  },
+  "8": {
+    "questions": "Which of the following are data objects that can be created in the Databricks Data Science and Engineering workspace? Select two responses.",
+    "choices": [
+      "MLflow Models",
+      "Clusters",
+      "Tables",
+      "Functions",
+      "SQL Warehouses"
+    ],
+    "expected_answers": 2,
+    "answers": [
+      3,
+      4
+    ]
+  },
+  "9": {
+    "questions": "Which of the following statements provide examples of contrasting use cases for silver and gold tables? Select one response.",
+    "choices": [
+      "Silver tables contain raw data ingested from various sources. Gold tables provide efficient storage and querying of unprocessed data.",
+      "Silver tables contain filtered or cleansed data. Gold tables contain raw data ingested from various sources.",
+      "Silver tables provide business level aggregates often used for reporting and dashboarding. Gold tables reduce data storage complexity, latency, and redundancy.",
+      "Silver tables enrich data by joining fields from bronze tables. Gold tables provide business level aggregates often used for reporting and dashboarding.",
+      "Silver tables retain the full, unprocessed history of each data set. Gold tables provide business level aggregates often used for reporting and dashboarding."
+    ],
+    "expected_answers": 1,
+    "answers": 4
+  },
+  "10": {
+    "questions": "Due to the platform administrator’s policies, a data engineer needs to use a single cluster on one very large batch of files for an ETL workload. The workload is automated, and the cluster will only be used by one workload at a time. They are part of an organization that wants them to minimize costs when possible.\nWhich of the following cluster configurations can the team use to satisfy their requirements? Select one response.",
+    "choices": [
+      "Multi node all-purpose cluster",
+      "Multi node job cluster",
+      "High concurrency all-purpose cluster",
+      "Single node all-purpose cluster",
+      "Single node job cluster"
+    ],
+    "expected_answers": 1,
+    "answers": 2
+  },
+  "11": {
+    "questions": "A data engineer needs to develop an interactive dashboard that displays the results of a query.\n\nWhich of the following services can they employ to accomplish this? Select one response.\n",
+    "choices": [
+      "Unity Catalog",
+      "Delta Live Tables (DLT)",
+      "Databricks SQL",
+      "Delta Lake",
+      "Databricks Machine Learning"
+    ],
+    "expected_answers": 1,
+    "answers": 3
+  },
+  "12": {
+    "questions": "Which of the following describes the advantages of the bronze layer of the multi-hop, medallion data architecture? Select one response.",
+    "choices": [
+      "The bronze layer brings data from different sources into an enterprise view, enabling self-service analytics for advanced analytics.",
+      "The bronze layer reports data and uses de-normalized and read-optimized data models with a minimal number of joins.",
+      "The bronze layer applies business rules and complex transformations for write-performant data models.",
+      "The bronze layer provides an historical archive of data lineage and auditability without rereading the data from the source system.",
+      "None of these responses correctly describe the advantages of the bronze layer in this data architecture."
+    ],
+    "expected_answers": 1,
+    "answers": 4
+  },
+  "13": {
+    "questions": "A data engineer is trying to merge their development branch into the main branch for a data project's repository.\n\nWhich of the following is a correct argument for why it is advantageous for the data engineering team to use Databricks Repos to manage their notebooks? Select one response.\n",
+    "choices": [
+      "Databricks Repos allows integrations with popular tools such as Tableau, Looker, Power BI, and RStudio.",
+      "Databricks Repos provides a centralized, immutable history that cannot be manipulated by users.",
+      "Databricks Repos uses one common security model to access each individual notebook, or a collection of notebooks, and experiments.",
+      "Databricks Repos REST API enables the integration of data projects into CI/CD pipelines.",
+      "Databricks Repos provides access to available data sets and data sources, on-premises or in the cloud."
+    ],
+    "expected_answers": 1,
+    "answers": 4
+  },
+  "14": {
+    "questions": "A data engineer needs the results of a query contained in the third cell of their notebook. It has been verified by another engineer that the query runs correctly. However, when they run the cell individually, they notice an error.\n\nWhich of the following steps can the data engineer take to ensure the query runs without error? Select two responses.\n",
+    "choices": [
+      "The data engineer can choose “Run all above” from the dropdown menu within the cell.",
+      "The data engineer can choose “Run all below” from the dropdown menu within the cell.",
+      "The data engineer can clear the execution state before re-executing the cell individually.",
+      "The data engineer can run the notebook cells in order starting from the first command.",
+      "The data engineer can clear all cell outputs before re-executing the cell individually."
+    ],
+    "expected_answers": 2,
+    "answers": [
+      1,
+      4
+    ]
+  },
+  "15": {
+    "questions": "Which of the following operations are supported by Databricks Repos? Select two responses.",
+    "choices": [
+      "Rebase",
+      "Clone",
+      "Reset",
+      "Sync",
+      "Pull"
+    ],
+    "expected_answers": 2,
+    "answers": [
+      2,
+      5
+    ]
+  },
+  "16": {
+    "questions": "Which of the following statements describes how to clear the execution state of a notebook? Select two responses.",
+    "choices": [
+      "Detach and reattach the notebook to a cluster.",
+      "Perform a Clean operation from the terminal.",
+      "Use the Clear State option from the Run dropdown menu.",
+      "Perform a Clean operation from the driver logs.",
+      "Perform a Clear State operation from the Spark UI."
+    ],
+    "expected_answers": 2,
+    "answers": [
+      1,
+      3
+    ]
+  },
+  "17": {
+    "questions": "Which of the following correctly lists the programming languages that Databricks Notebooks can have set as the default programming language? Select one response.",
+    "choices": [
+      "Bash script, Python, Scala, SQL",
+      "Python, R, Scala, SQL",
+      "Java, Pandas, Python, SQL",
+      "HTML, Python, R, Scala",
+      "HTML, Python, R, SQL"
+    ],
+    "expected_answers": 1,
+    "answers": 2
+  },
+  "18": {
+    "questions": "Which of the following cluster configuration options can be customized at the time of cluster creation? Select all that apply.",
+    "choices": [
+      "Cluster mode",
+      "Maximum number of worker nodes",
+      "Databricks Runtime Version",
+      "Access permissions",
+      "Restart policy"
+    ],
+    "expected_answers": 4,
+    "answers": [
+      1,
+      2,
+      3,
+      5
+    ]
+  },
+  "19": {
+    "questions": "Which of the following resources reside in the data plane of a Databricks deployment? Select one response.",
+    "choices": [
+      "Databricks File System (DBFS)",
+      "Notebooks",
+      "Cluster manager",
+      "Web application",
+      "Job scheduler"
+    ],
+    "expected_answers": 1,
+    "answers": 1
+  },
+  "20": {
+    "questions": "A data engineer needs to run some SQL code within a Python notebook. Which of the following will allow them to do this? Select two responses.",
+    "choices": [
+      "They can use the %sql command at the top of the cell containing SQL code.",
+      "It is not possible to run SQL code from a Python notebook.",
+      "They can use the %md command at the top of the cell containing SQL code.",
+      "They can wrap the SQL command in spark.sql().",
+      "They can run the import sql statement at the beginning of their notebook."
+    ],
+    "expected_answers": 2,
+    "answers": [
+      1,
+      4
+    ]
+  },
+  "21": {
+    "questions": "Three data engineers are collaborating on a project using a Databricks Repo. They are working on the notebook at separate times of the day.\n\nWhich of the following is considered best practice for collaborating in this way? Select one response.\n",
+    "choices": [
+      "The engineers can use a separate internet-hosting service to develop their code in a single repository before merging their changes into a Databricks Repo.",
+      "The engineers can each create their own Databricks Repo for development and merge changes into a main repository for production.",
+      "The engineers can set up an alert schedule to notify them when changes have been made to their code.",
+      "The engineers can each design, develop, and trigger their own Git automation pipeline.",
+      "The engineers can each work in their own branch for development to avoid interfering with each other."
+    ],
+    "expected_answers": 1,
+    "answers": 5
+  },
+  "22": {
+    "4": "",
+    "questions": "A data engineer wants to stop running a cluster without losing the cluster’s configuration. The data engineer is not an administrator.\n\nWhich of the following actions can the data engineer take to satisfy their requirements and why? Select one response.\n",
+    "choices": [
+      "Delete the cluster; clusters are retained for 30 days after they are deleted.",
+      "Delete the cluster; clusters are retained for 60 days after they are deleted.",
+      "Edit the cluster; clusters can be saved as templates in the cluster configuration page before they are deleted.",
+      "Terminate the cluster; clusters are retained for 30 days after they are terminated.",
+      "Detach the cluster; clusters are retained for 70 days after they are detached from a notebook."
+    ],
+    "expected_answers": 1,
+    "answers": 4
+  },
+  "23": {
+    "questions": "Which of the following pieces of information must be configured in the user settings of a workspace to integrate a Git service provider with a Databricks Repo? Select two responses.",
+    "choices": [
+      "Two-factor authentication code from Git service provider",
+      "Username for Git service provider account",
+      "Personal Access Token",
+      "Workspace Access Token",
+      "Administrator credentials for Git service provider account"
+    ],
+    "expected_answers": 2,
+    "answers": [
+      2,
+      3
+    ]
+  },
+  "24": {
+    "questions": "A data engineer is having trouble locating the dashboard samples. They know that the dashboard was created in the year 2022 by one of their colleagues.\n\nWhich of the following steps can the data engineer take to find the dashboard? Select one response.\n",
+    "choices": [
+      "They can use the search feature and filter their search by data object, date last modified, and owner.",
+      "They can query the event log of the cluster that the dashboard was created on.",
+      "They can run DESCRIBE LOCATION samples; within a Databricks notebook, which will list the locations of any dashboards with the same name.",
+      "They can run DESCRIBE HISTORY‘2022-01-01’; within a Databricks notebook, which will list the names of any data objects created after that timestamp.",
+      "They can run DESCRIBE DETAIL samples; within a Databricks notebook, which will list the locations of any dashboards with the same name."
+    ],
+    "expected_answers": 1,
+    "answers": 1
+  }
+}

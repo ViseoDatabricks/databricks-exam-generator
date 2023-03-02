@@ -1,0 +1,8 @@
+get_started_with_databricks_workspace_nb_questions = 5
+build_data_pipeline_with_DLT_spark_sql_nb_questions = 7
+build_data_pipeline_with_DLT_pyspark_nb_questions = 6
+transform_data_with_spark_sql_nb_questions = 5
+transform_data_with_pyspark_nb_questions = 5
+deploy_workloads_with_databricks_workflows_nb_questions = 7
+manage_data_access_with_unity_catalog_nb_questions = 4
+manage_data_with_delta_lake_nb_questions = 6
