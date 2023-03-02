@@ -18,9 +18,7 @@ def display_question(form, nested_question_dic, question_num, answers_dic):
                 choice, key=str(question_num) + "_" + str(i) + "_question"
             )
             i = i + 1
-        answers_dic[str(question_num)] = get_indexes_multiple_choices(
-            [1, 2, 3, 4, 5], list(dic_choices.values())
-        )
+        answers_dic[str(question_num)] = get_indexes_multiple_choices([1, 2, 3, 4, 5], list(dic_choices.values()))
     return answers_dic
 
 
