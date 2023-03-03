@@ -9,7 +9,7 @@
       "(CAST(user_last_touch_timestamp) as date_format) as end_date"
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 1
   },
   "1": {
     "questions": "Which of the following is an advantage of using a SQL user-defined function (UDF) over a UDF written in Python? Select one response.\n",
@@ -21,7 +21,7 @@
       "SQL function declarations do not require parameter specifications."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 4
   },
   "2": {
     "questions": "A data engineer has a table events that has been registered against an external JSON file. They need to access the field date within the columns of JSON strings.\n\nWhich of the following approaches can the data engineer use to accomplish this? Select one response.\n",
@@ -33,7 +33,7 @@
       "They can use from_json() to parse the column into a struct type."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 2
   },
   "3": {
     "questions": "A data engineer has created a user-defined function (UDF) that they want to share with a colleague.\n\nWhich permissions need to be granted to the colleague in order for them to use the UDF? Select two responses.\n",
@@ -45,7 +45,7 @@
       "VIEW"
     ],
     "expected_answers": 2,
-    "answers": []
+    "answers": [1,3]
   },
   "4": {
     "questions": "A data engineer has created the following temporary view sales_revenue that joins the dataset sales with a lookup table sales_lookup when sales and sales_lookup have matching values in the sales_id column in both tables.CREATE OR REPLACE TEMP VIEW sales_revenue ASSELECT *FROM (SELECT * FROM sales) a _____ON a.sales_id = b.sales_id;\n\nWhich of the following lines of code correctly fills in the blank? Select one response.",
@@ -57,7 +57,7 @@
       "INNER JOIN sales_lookup b"
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 5
   },
   "5": {
     "questions": "Which of the following commands returns a set of records from the table customers without duplicates? Select one response.\n",
@@ -69,7 +69,7 @@
       "SELECT DISTINCT COUNT from customers;"
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 1
   },
   "6": {
     "questions": "A data engineer needs a reference to the results of a query that can be referenced across multiple queries within the scope of the environment session. The data engineer does not want the reference to exist outside of the scope of the environment session.\n\nWhich of the following approaches accomplishes this without explicitly dropping the data object? Select one response.\n",
@@ -81,7 +81,7 @@
       "They can store the results of their query within a common table expression (CTE)."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 1
   },
   "7": {
     "questions": "Which of the following queries counts null values in the column email from the table users_dirty? Select two responses.",
@@ -93,7 +93,7 @@
       "SELECT * FROM users_dirty DROP DUPLICATES;"
     ],
     "expected_answers": 2,
-    "answers": []
+    "answers": [1,3]
   },
   "8": {
     "questions": "A data engineer needs to create and register a user-defined function (UDF) CREATE_USER using the Python function createUser and apply it to array column username in the table users. They have the following lines of code:Lines of code:1. spark.sql(\"SELECT createUser(username) AS user FROM users\")2. spark.sql(\"SELECT CREATE_USER(username) AS user FROM users\")3. spark.udf.register(\"CREATE_USER\", createUser)4. spark.udf.register(createUser(username))In what order do the lines of code above need to be run in a Python session in order to accomplish this? Select one response.",
@@ -105,19 +105,19 @@
       "4, 2"
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 3
   },
   "9": {
     "questions": "A data engineer has a query that directly updates the files underlying the external table emails.\n\nWhich of the following correctly describes how to retrieve the number of rows in the updated table? Select one response.\n",
     "choices": [
-      "REFRESH TABLE emails;<br/>SELECT COUNT(*) FROM emails AS OF VERSION 1;",
-      "REFRESH TABLE emails;<br/>SELECT COUNT(*) FROM emails;",
-      "REFRESH TABLE emails;<br/>SELECT DISTINCT_COUNT(*) FROM emails;",
-      "REFRESH TABLE emails;<br/>SELECT COUNT(*) FROM emails WHEN UPDATED = TRUE;",
-      "REFRESH TABLE emails;<br/>SELECT DISTINCT_COUNT(*) FROM emails AS OF VERSION 1;"
+      "REFRESH TABLE emails; SELECT COUNT(*) FROM emails AS OF VERSION 1;",
+      "REFRESH TABLE emails; SELECT COUNT(*) FROM emails;",
+      "REFRESH TABLE emails; SELECT DISTINCT_COUNT(*) FROM emails;",
+      "REFRESH TABLE emails; SELECT COUNT(*) FROM emails WHEN UPDATED = TRUE;",
+      "REFRESH TABLE emails; SELECT DISTINCT_COUNT(*) FROM emails AS OF VERSION 1;"
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 2
   },
   "10": {
     "questions": "A senior data engineer has registered the SQL user-defined function (UDF) create_users to be used by the rest of their team. Another data engineer wants to know where the function was registered and what the expected inputs are. Both data engineers have USAGE and SELECT privileges on create_users.\nWhich of the following commands can the second data engineer use to do this? Select two responses.\n",
@@ -129,7 +129,7 @@
       "SHOW FUNCTION create_users;"
     ],
     "expected_answers": 2,
-    "answers": []
+    "answers": [2,3]
   },
   "11": {
     "questions": "A data engineer has a table events that has been registered against an external JSON file. The nested JSON fields have already been converted into struct types. The data engineer now needs to flatten the struct fields back into individual columns for each subfield.\n\nWhich of the following approaches allows the data engineer to retrieve the subfields within the JSON string? Select one response.\n",
@@ -141,7 +141,7 @@
       "They can index the query by subfield."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 2
   },
   "12": {
     "questions": "A data engineer has the following query, where path is a variable that represents the location of a directory.\n\nQuery:\nSELECT * FROM csv.`${path}`;\n",
@@ -153,10 +153,10 @@
       "The query displays the metadata of a directory of CSV files."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 3
   },
   "13": {
-    "questions": "A data engineer has created a SQL query that specifies three cases in which the result returned is Pass. If none of the conditionals for the cases are met, then the query returns Fail. They need to convert this query into a reusable function.\n<br/>Which of the following approaches does the data engineer need to take in order to accomplish this? Select one response.  ",
+    "questions": "A data engineer has created a SQL query that specifies three cases in which the result returned is Pass. If none of the conditionals for the cases are met, then the query returns Fail. They need to convert this query into a reusable function.\nWhich of the following approaches does the data engineer need to take in order to accomplish this? Select one response.  ",
     "choices": [
       "The data engineer needs to alter the query to specify one reusable function returning either Pass or Fail at the end of the query.",
       "The data engineer needs to create a function where all three cases are combined into one case that points to Pass. An ELSE case returning Fail must be specified if all of the conditions for the case are not met.",
@@ -165,7 +165,7 @@
       "The data engineer needs to create a function where each case points to Pass. An ELSE case returning Fail must be specified if none of the conditions for the other cases are met."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 5
   },
   "14": {
     "questions": "Which of the following statements about the difference between views and temporary views are correct? Select two responses.",
@@ -177,7 +177,7 @@
       "Temporary views are session-scoped and dropped when the Spark session ends. Views can be accessed after the session ends."
     ],
     "expected_answers": 2,
-    "answers": []
+    "answers": [2,5]
   },
   "15": {
     "questions": "A data engineer is registering a table in Databricks using the table users from an external SQL database. One of their colleagues gives them the following code to register the table. However, when the data engineer runs the code, they notice an error.\n\n\nCREATE TABLE users_jdbcUSING JDBCOPTIONS ( url = \"jdbc:sqlite:${DA.paths.ecommerce_db}\")\n\nWhich of the following correctly identifies why running the code is resulting in an error? Select one response.",
@@ -189,7 +189,7 @@
       "CREATE TABLE needs to be changed to CREATE JDBC TABLE."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 3
   },
   "16": {
     "questions": "A data engineer has created the table events with the following SQL statement:CREATE TABLE events (user_id string, event_name string, item_id string, events struct&lt;coupon:string, event_id:string, event_revenue:double&gt;);They are using the following code with multiple array transformations to return a result set that shows the unique collection of the columns event_name and items.SELECT user_id, collect_set(event_name) AS event_history, _____FROM eventsGROUP BY user_idWhich of the following lines of code fills in the blank to create the column event_history as a unique collection of events? Select one response.",
@@ -201,7 +201,7 @@
       "flatten(extract(events)) AS event_history"
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 4
   },
   "17": {
     "questions": "A data engineer wants to extract lines as raw strings from a text file.\n\nWhich of the following SQL commands accomplishes this task? Select one response.\n",
@@ -213,19 +213,19 @@
       "SELECT text(*) FROM ${dbfs:/mnt/datasets}/001.txt`;"
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 2
   },
   "18": {
     "questions": "A data engineer is using the following code block to create a table using an external CSV file as its source. They need to specify that the fields are separated by | and that there is a header.\n\n\nCREATE TABLE IF NOT EXISTS sales_csv\n(order_id LONG, email STRING, transactions_timestamp LONG, total_item_quantity INTEGER, purchase_revenue_in_usd DOUBLE, unique_items INTEGER, items STRING)\nUSING CSV\n_____\nLOCATION \"${dbfs:/mnt/datasets}\"\n\nWhich of the following correctly fills in the blank for the table options? Select one response.\n",
     "choices": [
-      "KEYS (",
-      "OPTIONS (",
-      "TBLPROPERTIES (",
-      "VALUES (",
-      "COMMENTS ("
+      "KEYS (\nheader = \"true\",\ndelimiter = \"|\"\n)",
+      "OPTIONS (\n  header = \"true\",\n  delimiter = \"|\"\n)\n",
+      "TBLPROPERTIES (\nheader = \"true\",\ndelimiter = \"|\"\n)",
+      "VALUES (\nheader = \"true\",\ndelimiter = \"|\"\n)",
+      "COMMENTS (\nheader = \"true\",\ndelimiter = \"|\"\n)"
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 2
   },
   "19": {
     "questions": "A data engineer has a table high_temps with the following schema, where avg_high_temp represents the monthly average high temperatures for each unique year-month combination.\n\nyear string\nmonth string\navg_high_temp string\n\nThey need to reformat the data with years as the primary record key and months as the columns. The existing average high temperature value for each year-month combination needs to be in the month columns.\n\nHow can the data engineer accomplish this? Select one response.\n",
@@ -237,7 +237,7 @@
       "The data engineer can rotate the data from long to wide format using the TRANSFORM clause."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 2
   },
   "20": {
     "questions": "A data engineer has a table records with a column email. They want to check if there are null values in the email column.\n\nWhich of the following approaches accomplishes this? Select one response.\n",
@@ -249,7 +249,7 @@
       "They can check if there is at least one record where email is null using SELECT DISTINCT records."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 2
   },
   "21": {
     "questions": "Which of the following statements about querying tables defined against external sources is true? Select one response.\n",
@@ -261,7 +261,7 @@
       "When defining tables or queries against external data sources, the performance guarantees associated with Delta Lake and Lakehouse cannot be guaranteed."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 5
   },
   "22": {
     "questions": "A data engineer has a table users with string column email_address. They are using a regular expression that returns a string with a matching pattern when it is in the following format:\nuser.address@domain.com\nWhich of the following lines of code creates a new column domain that contains the domain from the email_address column? Select one response.",
@@ -273,7 +273,7 @@
       "collect_set(regexp(email, \"(?&lt;=@).+\", 1)) AS domain"
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 4
   },
   "23": {
     "questions": "A data engineer is using the following query to confirm that each unique string value in the phone_number column in the table users is associated with at most one user_id. When they run the query, they notice that the query is not returning the expected result.SELECT max(user_id_count) &lt;= 1 at_most_one_idFROM (  SELECT   phone_number,   count(distinct(\"user_id\")) AS user_id_count  FROM   users  GROUP BY   phone_number )\n\nWhich of the following explains why the query is not returning the expected result? Select one response.\n",
@@ -285,7 +285,7 @@
       "A DROP DUPLICATES statement needs to be added after the FROM users line."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 1
   },
   "24": {
     "questions": "A data engineer needs to query a JSON file whose location is represented by the variable path.\n\nWhich of the following commands do they need to use? Select one response.\n",
@@ -297,6 +297,6 @@
       "DISPLAY TABLE json.`${path}`;"
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 3
   }
 }
