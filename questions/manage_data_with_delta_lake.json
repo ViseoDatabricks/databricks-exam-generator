@@ -1,1 +1,302 @@
-{"0": {"questions": "data engineer wants to make changes to a very large table. They want to test their changes on a similar data object before modifying or copying the original table\u2019s associated data.\n\nWhich of the following keywords can be used to create a similar data object that can be used for testing while meeting the above requirements? Select one response.\n", "choices": ["UPDATE", "COPY", "SHALLOW CLONE", "DEEP CLONE", "CLONE"], "expected_answers": 1, "answers": []}, "1": {"questions": "A data engineer is trying to create the generated column date in their table. However, when they run their query to create the table, they notice an error in the following line of code.\n\nLine of code:\ndate DATE GENERATED ALWAYS AS (\ncast(cast(transaction_timestamp/1e6) AS DATE)))\n\nWhich of the following statements correctly describes the error? Select one response.\n", "choices": ["The DATE GENERATED ALWAYS AS command already casts transaction_timestamp to a date, so the AS DATE cast needs to be removed.", "transaction_timestamp needs to be converted to an integer before it is cast as a date.", "transaction_timestamp needs to be cast as a timestamp before it is cast as a date.", "The ALWAYS keyword needs to be removed to account for improperly formatted data.", "transaction_timestamp needs to be converted to datetime format before it is cast as a date."], "expected_answers": 1, "answers": []}, "2": {"questions": "Which of the following problems are solved by the guarantee of ACID transactions? Select two responses.", "choices": ["ACID transactions combine compute and storage scaling to reduce costs.", "ACID transactions guarantee the use of proprietary storage formats.", "ACID transactions guarantee that appends will not fail due to conflict, even when writing from multiple sources at the same time.", "ACID transactions support the creation of interactive visualization queries.", "ACID transactions are guaranteed to either succeed or fail completely, so jobs will never fail mid way."], "expected_answers": 2, "answers": []}, "3": {"questions": "Which of the following table modifications can be made with a MERGE INTO statement? Select three responses.\n", "choices": ["Write data that generates multiple downstream tables", "Write a stream of schema changes into a table", "Write streaming aggregates in Update Mode", "Write raw data from a file location into a schema", "Write data to a table with automatic deduplication"], "expected_answers": 3, "answers": []}, "4": {"questions": "A data engineer needs to create the new database clients at a location represented by the variable path. The database will only contain JSON files.\n\nWhich of the following commands does the data engineer need to run to complete this task? Select two responses.\n", "choices": ["CREATE SCHEMA clients LOCATION '${path}';", "CREATE SCHEMA IF NOT EXISTS clients json. '${path}';", "CREATE DATABASE clients LOCATION '${path}';", "CREATE DATABASE IF NOT EXISTS clients '${path}';", "CREATE DATABASE clients DELTA json. '${path}';"], "expected_answers": 2, "answers": []}, "5": {"questions": "A data engineer has a collection of tables. They need to manually remove old data files from the tables and remove access to previous versions of the tables.\n\nWhich of the following approaches allows the data engineer to do this? Select one response.\n", "choices": ["They need to enable the retention duration check and disable vacuum logging. Then they need to Z-order the table.", "They need to disable the last commit version in session and enable vacuum duration check. Then they need to Z-order the table.", "They need to enable the retention duration check and vacuum logging. Then they need to optimize the table.", "They need to disable the retention duration check and enable the last commit version in session. Then they need to vacuum the table.", "They need to disable the retention duration check and enable vacuum logging. Then they need to vacuum the table."], "expected_answers": 1, "answers": []}, "6": {"questions": "A data engineer needs to atomically append new rows to an existing Delta table.\n\nWhich of the following approaches is considered best practice to efficiently modify the table? Select one response.\n", "choices": ["The data engineer can use INSERT OVERWRITE to incrementally update the existing tables.", "The data engineer can use UPDATE to update the existing tables in one batch.", "The data engineer can use INSERT INTO to incrementally update the existing tables.", "The data engineer can use INSERT ONLY to incrementally update the existing tables.", "The data engineer can use APPEND to update the existing tables in one batch."], "expected_answers": 1, "answers": []}, "7": {"questions": "A data engineer is working with the table products. They want to identify the location of products and read its metadata, including the table\u2019s format and the date that the table was created at.\n\nWhich of the following commands do they need to use? Select one response.\n", "choices": ["SHOW TABLES products;", "DESCRIBE TABLE products;", "DESCRIBE TABLE EXTENDED products;", "DESCRIBE DETAIL products;", "DESCRIBE HISTORY products;"], "expected_answers": 1, "answers": []}, "8": {"questions": "A data engineer needs to undo changes made to the table foods. They need to ensure that the second version of the table does not include the changes before restoring the table back to that state.\n<br/><br/>\nLines of code:\n\nSELECT * FROM foods VERSION AS OF 2;\nREFRESH TABLE foods;\nSELECT * FROM foods WHERE version_number() == 2;\nRESTORE TABLE foods TO VERSION AS OF 2;\n\nIn what order do the lines of code above need to be run in a SQL environment in order to meet the requirements? Select one response.\n", "choices": ["1,4", "3,2", "2", "4", "1,2"], "expected_answers": 1, "answers": []}, "9": {"questions": "Which of the following describes a feature of Delta Lake that is unavailable in a traditional data warehouse? Select two responses.", "choices": ["Auto Loader for data ingestion of raw files", "Combined batch and streaming analytics", "Built-in monitoring for scheduled queries", "Experiment tracking and model management", "Centralized repository to share features"], "expected_answers": 2, "answers": []}, "10": {"questions": "The code block shown below should add a constraint to the table transaction_dates where only records from after '2022-10-01' can be added to the table. The column date represents the date the records were created.\n\nCode block:\n__1__ transaction_dates __2__ valid_date __3__;\n\nWhich of the following correctly fills in the numbered blanks within the code block to complete this task? Select one response.", "choices": ["1. ALTER TABLE\n2. CONSTRAINT\n3. (date &gt; '2022-10-01')", "1. ALTER TABLE\n2. CONSTRAINT\n3. UPDATE WHEN (date &gt; '2022-10-01')", "1. ALTER TABLE\n2. ADD CONSTRAINT\n3. CHECK (date &gt; '2022-10-01')", "1. ALTER TABLE\n2. DROP CONSTRAINT\n3. NOT NULL (date &gt; '2022-10-01')", "1. ALTER TABLE\n2. ADD CONSTRAINT\n3. WHERE (date &gt; '2022-10-01')"], "expected_answers": 1, "answers": []}, "11": {"questions": "Which of the following pieces of information about a table are located within the schema directory of the table? Select three responses.", "choices": ["Location", "Last modification date", "Catalog name", "Creation date", "Owner"], "expected_answers": 3, "answers": []}, "12": {"questions": "A data engineer is using the code shown below to replace data from the table sales with data from a new query. However, the query isn\u2019t running as expected.\n\nCode block:\n\nINSERT INTO sales\nSELECT *, current_timestamp() FROM parquet `${da.paths.datasets}/ecommerce/raw/sales-historical`\n<br/><br/>\nWhich of the following statements correctly explains why the query is not running as expected? Select one response.\n", "choices": ["APPEND needs to be used instead of INSERT INTO.", "INSERT OVERWRITE needs to be used instead of INSERT INTO.", "None of the provided answer choices explain why the query is running incorrectly.", "The source file path is formatted incorrectly. Double-quotes need to be used in place of back-ticks.", "MERGE INTO needs to be used instead of INSERT INTO."], "expected_answers": 1, "answers": []}, "13": {"questions": "A data engineer is trying to improve the performance of their query by colocating records on a common filter column to reduce the number of files that need to be read. The data engineer notices that the column user_id, which contains only unique values, is used in all of their query predicates.\n\nWhich optimization technique does the data engineer need to use? Select one response.\n", "choices": ["The data engineer needs to use OPTIMIZE to colocate records on user_id.", "The data engineer needs to use DATASKIPPING to colocate records on user_id.", "The data engineer needs to use VACUUM to colocate records on user_id.", "The data engineer needs to use ZORDER to colocate records on user_id.", "The data engineer needs to use COLOCATE to colocate records on user_id."], "expected_answers": 1, "answers": []}, "14": {"questions": "A data engineer needs to query a Delta table to extract rows that all meet the same condition. However, they notice that the query is running slowly, and that the data files used in the query are extremely small.\n\nWhich of the following techniques can the data engineer use to improve the performance of the query? Select one response.", "choices": ["They can perform file compaction and Z-order indexing in the query using the OPTIMIZE and ZORDER commands.", "They can perform file compaction and Z-order indexing in the query using the COMPACT and ZORDER commands.", "They can perform vacuuming and data skipping in the query using the VACUUM and DATASKIPPING commands.", "They can perform file compaction and vacuuming in the query using the COMPACT and VACUUM commands.", "They can perform data skipping and file compaction in the query using the DATASKIPPING and OPTIMIZE commands"], "expected_answers": 1, "answers": []}, "15": {"questions": "Which of the following conditions must be met for data to be loaded incrementally with the COPY INTO command? Select three responses.\n", "choices": ["COPY INTO must target an existing Delta table.", "The data cannot contain duplicate records.", "The source file must specify the file\u2019s format.", "The data must be in JSON or CSV format.", "The schema for the data must be defined."], "expected_answers": 3, "answers": []}, "16": {"questions": "Which of the following validates that the temporary view trees has exactly six records? Select one response.", "choices": ["assert spark.load(\"trees\").count() == 6", "assert spark.table(\"trees\").count() == 6", "assert spark.view(\"trees\").count() == 6", "assert spark.temp(\"trees\").count() == 6", "assert spark(\"trees\").count() == 6"], "expected_answers": 1, "answers": []}, "17": {"questions": "A data engineer is trying to optimize the result set returned in their query by compacting their data files to avoid small files.\n\nWhich keyword do they need to use in their query to improve the query\u2019s performance while keeping the data files as even as possible with respect to size on disk? Select one response.", "choices": ["COMPACT", "VACUUM", "ZORDER", "OPTIMIZE", "DATASKIPPING"], "expected_answers": 1, "answers": []}, "18": {"questions": "A data engineer needs to create a table with additional metadata columns. The columns need to specify the timestamp at which the table creation query was executed and the source data file for each record in the table.\n\nWhich of the following built-in Spark SQL commands can the data engineer use in their query to add these columns? Select two responses.\n", "choices": ["from_utc_timestamp()", "input_file_name()", "current_timestamp()", "from_unixtime()", "input_file_block_start()"], "expected_answers": 2, "answers": []}, "19": {"questions": "A data engineer needs to update the table people. The engineer only wants records to be updated if the existing row has a NULL value in the column email and the new row does not.\n\nThey have the following incomplete code block:\n\nMERGE INTO people a\nUSING people_update b\nON a.people_id = b.people_id\n_____\nWHEN NOT MATCHED THEN DELETE\n\nWhich of the following statements correctly fills in the blank? Select one response.\n", "choices": ["WHEN MATCHED AND a.email IS NULL THEN UPDATE SET email = b.email", "WHEN MATCHED AND a.email IS NULL THEN INSERT (email = b.email)", "INSERT (email = b.email) WHEN MATCHED AND a.email IS NULL", "UPDATE SET email = b.email WHEN MATCHED AND a.email IS NULL", "UPDATE SET email = b.email WHEN a.email IS NULL"], "expected_answers": 1, "answers": []}, "20": {"questions": "Which of the following statements about vacuuming with Delta Lake is true? Select one response.\n", "choices": ["Delta table data files are vacuumed according to their modification timestamps on the storage system.", "Running VACUUM on a Delta table eliminates the ability to time travel back to a version older than the specified data retention period", "Delta table metadata files will not be vacuumed unless the auto retention check is turned off.", "On Delta tables, Databricks automatically triggers VACUUM operations as data is written.", "VACUUM will not vacuum any directories that begin with an underscore except for _delta_log."], "expected_answers": 1, "answers": []}, "21": {"questions": "Which of the following statements about managed and external tables are true? Select two responses.\n", "choices": ["Managed tables are specified with the CREATE MANAGED TABLE command in SQL.", "External tables will always specify a LOCATION during table creation.", "When dropping an external table, the underlying data and metadata are also deleted.", "When dropping a managed table, only the underlying metadata stays intact.", "When moving a managed table to a new database, the table\u2019s data must be written to the new location."], "expected_answers": 2, "answers": []}, "22": {"questions": "A data engineer wants to review the changes that other team members have made to the table cities, including the operations that were performed on the table and the time at which they were performed. The variable path represents the file path to the table.\n\nWhich of the following commands does the data engineer need to use? Select one response.\n", "choices": ["DESCRIBE HISTORY cities;", "DESCRIBE EXTENDED cities;", "SELECT * FROM cities VERSION AS OF 1;", "DESCRIBE DETAIL cities;", "display(dbutils.fs.ls(f\"{path}\"))"], "expected_answers": 1, "answers": []}, "23": {"questions": "A data engineer wants to create an empty Delta table called student if it hasn\u2019t already been created.\n<br/>Which of the following will create a new table named student regardless of whether another table with the same name has already been created? Select one response.", "choices": ["CREATE TABLE IF NOT EXISTS student AS SELECT * FROM student", "CREATE TABLE student (id INT, name STRING, age INT);", "CREATE TABLE IF NOT EXISTS student (id INT, name STRING, age INT);", "OVERWRITE TABLE student (id INT, name STRING, age INT);", "CREATE OR REPLACE TABLE student (id INT, name STRING, age INT);"], "expected_answers": 1, "answers": []}, "24": {"questions": "Which of the following SQL commands can be used to remove a schema (database) at a specified location? Select two responses.\n", "choices": ["DROP DATABASE", "REMOVE DATABASE", "DROP SCHEMA", "DELETE DATABASE", "DELETE SCHEMA"], "expected_answers": 2, "answers": []}}
+{
+  "0": {
+    "questions": "A data engineer wants to make changes to a very large table. They want to test their changes on a similar data object before modifying or copying the original table’s associated data.\n\nWhich of the following keywords can be used to create a similar data object that can be used for testing while meeting the above requirements? Select one response.\n",
+    "choices": [
+      "UPDATE",
+      "COPY",
+      "SHALLOW CLONE",
+      "DEEP CLONE",
+      "CLONE"
+    ],
+    "expected_answers": 1,
+    "answers": 3
+  },
+  "1": {
+    "questions": "A data engineer is trying to create the generated column date in their table. However, when they run their query to create the table, they notice an error in the following line of code.\n\nLine of code:\ndate DATE GENERATED ALWAYS AS (\ncast(cast(transaction_timestamp/1e6) AS DATE)))\n\nWhich of the following statements correctly describes the error? Select one response.\n",
+    "choices": [
+      "The DATE GENERATED ALWAYS AS command already casts transaction_timestamp to a date, so the AS DATE cast needs to be removed.",
+      "transaction_timestamp needs to be converted to an integer before it is cast as a date.",
+      "transaction_timestamp needs to be cast as a timestamp before it is cast as a date.",
+      "The ALWAYS keyword needs to be removed to account for improperly formatted data.",
+      "transaction_timestamp needs to be converted to datetime format before it is cast as a date."
+    ],
+    "expected_answers": 1,
+    "answers": 3
+  },
+  "2": {
+    "questions": "Which of the following problems are solved by the guarantee of ACID transactions? Select two responses.",
+    "choices": [
+      "ACID transactions combine compute and storage scaling to reduce costs.",
+      "ACID transactions guarantee the use of proprietary storage formats.",
+      "ACID transactions guarantee that appends will not fail due to conflict, even when writing from multiple sources at the same time.",
+      "ACID transactions support the creation of interactive visualization queries.",
+      "ACID transactions are guaranteed to either succeed or fail completely, so jobs will never fail mid way."
+    ],
+    "expected_answers": 2,
+    "answers": [3,5]
+  },
+  "3": {
+    "questions": "Which of the following table modifications can be made with a MERGE INTO statement? Select three responses.\n",
+    "choices": [
+      "Write data that generates multiple downstream tables",
+      "Write a stream of schema changes into a table",
+      "Write streaming aggregates in Update Mode",
+      "Write raw data from a file location into a schema",
+      "Write data to a table with automatic deduplication"
+    ],
+    "expected_answers": 3,
+    "answers": [2,3,5]
+  },
+  "4": {
+    "questions": "A data engineer needs to create the new database clients at a location represented by the variable path. The database will only contain JSON files.\n\nWhich of the following commands does the data engineer need to run to complete this task? Select two responses.\n",
+    "choices": [
+      "CREATE SCHEMA clients LOCATION '${path}';",
+      "CREATE SCHEMA IF NOT EXISTS clients json. '${path}';",
+      "CREATE DATABASE clients LOCATION '${path}';",
+      "CREATE DATABASE IF NOT EXISTS clients '${path}';",
+      "CREATE DATABASE clients DELTA json. '${path}';"
+    ],
+    "expected_answers": 2,
+    "answers": [1,3]
+  },
+  "5": {
+      "questions": "A data engineer has a collection of tables. They need to manually remove old data files from the tables and remove access to previous versions of the tables.\n\nWhich of the following approaches allows the data engineer to do this? Select one response.\n",
+    "choices": [
+      "They need to enable the retention duration check and disable vacuum logging. Then they need to Z-order the table.",
+      "They need to disable the last commit version in session and enable vacuum duration check. Then they need to Z-order the table.",
+      "They need to enable the retention duration check and vacuum logging. Then they need to optimize the table.",
+      "They need to disable the retention duration check and enable the last commit version in session. Then they need to vacuum the table.",
+      "They need to disable the retention duration check and enable vacuum logging. Then they need to vacuum the table."
+    ],
+    "expected_answers": 1,
+    "answers": 5
+  },
+  "6": {
+    "questions": "A data engineer needs to atomically append new rows to an existing Delta table.\n\nWhich of the following approaches is considered best practice to efficiently modify the table? Select one response.\n",
+    "choices": [
+      "The data engineer can use INSERT OVERWRITE to incrementally update the existing tables.",
+      "The data engineer can use UPDATE to update the existing tables in one batch.",
+      "The data engineer can use INSERT INTO to incrementally update the existing tables.",
+      "The data engineer can use INSERT ONLY to incrementally update the existing tables.",
+      "The data engineer can use APPEND to update the existing tables in one batch."
+    ],
+    "expected_answers": 1,
+    "answers": 3
+  },
+  "7": {
+    "questions": "A data engineer is working with the table products. They want to identify the location of products and read its metadata, including the table’s format and the date that the table was created at.\n\nWhich of the following commands do they need to use? Select one response.\n",
+    "choices": [
+      "SHOW TABLES products;",
+      "DESCRIBE TABLE products;",
+      "DESCRIBE TABLE EXTENDED products;",
+      "DESCRIBE DETAIL products;",
+      "DESCRIBE HISTORY products;"
+    ],
+    "expected_answers": 1,
+    "answers": 4
+  },
+  "8": {
+    "questions": "A data engineer needs to undo changes made to the table foods. They need to ensure that the second version of the table does not include the changes before restoring the table back to that state.\n\nLines of code:\n\nSELECT * FROM foods VERSION AS OF 2;\nREFRESH TABLE foods;\nSELECT * FROM foods WHERE version_number() == 2;\nRESTORE TABLE foods TO VERSION AS OF 2;\n\nIn what order do the lines of code above need to be run in a SQL environment in order to meet the requirements? Select one response.\n",
+    "choices": [
+      "1,4",
+      "3,2",
+      "2",
+      "4",
+      "1,2"
+    ],
+    "expected_answers": 1,
+    "answers":1
+  },
+  "9": {
+    "questions": "Which of the following describes a feature of Delta Lake that is unavailable in a traditional data warehouse? Select two responses.",
+    "choices": [
+      "Auto Loader for data ingestion of raw files",
+      "Combined batch and streaming analytics",
+      "Built-in monitoring for scheduled queries",
+      "Experiment tracking and model management",
+      "Centralized repository to share features"
+    ],
+    "expected_answers": 2,
+    "answers": [1,2]
+  },
+  "10": {
+    "questions": "The code block shown below should add a constraint to the table transaction_dates where only records from after '2022-10-01' can be added to the table. The column date represents the date the records were created.\n\nCode block:\n__1__ transaction_dates __2__ valid_date __3__;\n\nWhich of the following correctly fills in the numbered blanks within the code block to complete this task? Select one response.",
+    "choices": [
+      "1. ALTER TABLE\n2. CONSTRAINT\n3. (date > '2022-10-01')",
+      "1. ALTER TABLE\n2. CONSTRAINT\n3. UPDATE WHEN (date > '2022-10-01')",
+      "1. ALTER TABLE\n2. ADD CONSTRAINT\n3. CHECK (date > '2022-10-01')",
+      "1. ALTER TABLE\n2. DROP CONSTRAINT\n3. NOT NULL (date > '2022-10-01')",
+      "1. ALTER TABLE\n2. ADD CONSTRAINT\n3. WHERE (date > '2022-10-01')"
+    ],
+    "expected_answers": 1,
+    "answers": 3
+  },
+  "11": {
+    "questions": "Which of the following pieces of information about a table are located within the schema directory of the table? Select three responses.",
+    "choices": [
+      "Location",
+      "Last modification date",
+      "Catalog name",
+      "Creation date",
+      "Owner"
+    ],
+    "expected_answers": 3,
+    "answers": [1,3,5]
+  },
+  "12": {
+    "questions": "A data engineer is using the code shown below to replace data from the table sales with data from a new query. However, the query isn’t running as expected.\n\nCode block:\n\nINSERT INTO sales\nSELECT *, current_timestamp() FROM parquet `${da.paths.datasets}/ecommerce/raw/sales-historical`\n\nWhich of the following statements correctly explains why the query is not running as expected? Select one response.\n",
+    "choices": [
+      "APPEND needs to be used instead of INSERT INTO.",
+      "INSERT OVERWRITE needs to be used instead of INSERT INTO.",
+      "None of the provided answer choices explain why the query is running incorrectly.",
+      "The source file path is formatted incorrectly. Double-quotes need to be used in place of back-ticks.",
+      "MERGE INTO needs to be used instead of INSERT INTO."
+    ],
+    "expected_answers": 1,
+    "answers": 2
+  },
+  "13": {
+    "questions": "A data engineer is trying to improve the performance of their query by colocating records on a common filter column to reduce the number of files that need to be read. The data engineer notices that the column user_id, which contains only unique values, is used in all of their query predicates.\n\nWhich optimization technique does the data engineer need to use? Select one response.\n",
+    "choices": [
+      "The data engineer needs to use OPTIMIZE to colocate records on user_id.",
+      "The data engineer needs to use DATASKIPPING to colocate records on user_id.",
+      "The data engineer needs to use VACUUM to colocate records on user_id.",
+      "The data engineer needs to use ZORDER to colocate records on user_id.",
+      "The data engineer needs to use COLOCATE to colocate records on user_id."
+    ],
+    "expected_answers": 1,
+    "answers": 4
+  },
+  "14": {
+    "questions": "A data engineer needs to query a Delta table to extract rows that all meet the same condition. However, they notice that the query is running slowly, and that the data files used in the query are extremely small.\n\nWhich of the following techniques can the data engineer use to improve the performance of the query? Select one response.",
+    "choices": [
+      "They can perform file compaction and Z-order indexing in the query using the OPTIMIZE and ZORDER commands.",
+      "They can perform file compaction and Z-order indexing in the query using the COMPACT and ZORDER commands.",
+      "They can perform vacuuming and data skipping in the query using the VACUUM and DATASKIPPING commands.",
+      "They can perform file compaction and vacuuming in the query using the COMPACT and VACUUM commands.",
+      "They can perform data skipping and file compaction in the query using the DATASKIPPING and OPTIMIZE commands"
+    ],
+    "expected_answers": 1,
+    "answers": 1
+  },
+  "15": {
+    "questions": "Which of the following conditions must be met for data to be loaded incrementally with the COPY INTO command? Select three responses.\n",
+    "choices": [
+      "COPY INTO must target an existing Delta table.",
+      "The data cannot contain duplicate records.",
+      "The source file must specify the file’s format.",
+      "The data must be in JSON or CSV format.",
+      "The schema for the data must be defined."
+    ],
+    "expected_answers": 3,
+    "answers": [1,3,4]
+  },
+  "16": {
+    "questions": "Which of the following validates that the temporary view trees has exactly six records? Select one response.",
+    "choices": [
+      "assert spark.load(\"trees\").count() == 6",
+      "assert spark.table(\"trees\").count() == 6",
+      "assert spark.view(\"trees\").count() == 6",
+      "assert spark.temp(\"trees\").count() == 6",
+      "assert spark(\"trees\").count() == 6"
+    ],
+    "expected_answers": 1,
+    "answers": 2
+  },
+  "17": {
+    "questions": "A data engineer is trying to optimize the result set returned in their query by compacting their data files to avoid small files.\n\nWhich keyword do they need to use in their query to improve the query’s performance while keeping the data files as even as possible with respect to size on disk? Select one response.",
+    "choices": [
+      "COMPACT",
+      "VACUUM",
+      "ZORDER",
+      "OPTIMIZE",
+      "DATASKIPPING"
+    ],
+    "expected_answers": 1,
+    "answers": 4
+  },
+  "18": {
+    "questions": "A data engineer needs to create a table with additional metadata columns. The columns need to specify the timestamp at which the table creation query was executed and the source data file for each record in the table.\n\nWhich of the following built-in Spark SQL commands can the data engineer use in their query to add these columns? Select two responses.\n",
+    "choices": [
+      "from_utc_timestamp()",
+      "input_file_name()",
+      "current_timestamp()",
+      "from_unixtime()",
+      "input_file_block_start()"
+    ],
+    "expected_answers": 2,
+    "answers": [2,3]
+  },
+  "19": {
+    "questions": "A data engineer needs to update the table people. The engineer only wants records to be updated if the existing row has a NULL value in the column email and the new row does not.\n\nThey have the following incomplete code block:\n\nMERGE INTO people a\nUSING people_update b\nON a.people_id = b.people_id\n_____\nWHEN NOT MATCHED THEN DELETE\n\nWhich of the following statements correctly fills in the blank? Select one response.\n",
+    "choices": [
+      "WHEN MATCHED AND a.email IS NULL THEN UPDATE SET email = b.email",
+      "WHEN MATCHED AND a.email IS NULL THEN INSERT (email = b.email)",
+      "INSERT (email = b.email) WHEN MATCHED AND a.email IS NULL",
+      "UPDATE SET email = b.email WHEN MATCHED AND a.email IS NULL",
+      "UPDATE SET email = b.email WHEN a.email IS NULL"
+    ],
+    "expected_answers": 1,
+    "answers": 1
+  },
+  "20": {
+    "questions": "Which of the following statements about vacuuming with Delta Lake is true? Select one response.\n",
+    "choices": [
+      "Delta table data files are vacuumed according to their modification timestamps on the storage system.",
+      "Running VACUUM on a Delta table eliminates the ability to time travel back to a version older than the specified data retention period",
+      "Delta table metadata files will not be vacuumed unless the auto retention check is turned off.",
+      "On Delta tables, Databricks automatically triggers VACUUM operations as data is written.",
+      "VACUUM will not vacuum any directories that begin with an underscore except for _delta_log."
+    ],
+    "expected_answers": 1,
+    "answers": 2
+  },
+  "21": {
+    "questions": "Which of the following statements about managed and external tables are true? Select two responses.\n",
+    "choices": [
+      "Managed tables are specified with the CREATE MANAGED TABLE command in SQL.",
+      "External tables will always specify a LOCATION during table creation.",
+      "When dropping an external table, the underlying data and metadata are also deleted.",
+      "When dropping a managed table, only the underlying metadata stays intact.",
+      "When moving a managed table to a new database, the table’s data must be written to the new location."
+    ],
+    "expected_answers": 2,
+    "answers": [2,5]
+  },
+  "22": {
+    "questions": "A data engineer wants to review the changes that other team members have made to the table cities, including the operations that were performed on the table and the time at which they were performed. The variable path represents the file path to the table.\n\nWhich of the following commands does the data engineer need to use? Select one response.\n",
+    "choices": [
+      "DESCRIBE HISTORY cities;",
+      "DESCRIBE EXTENDED cities;",
+      "SELECT * FROM cities VERSION AS OF 1;",
+      "DESCRIBE DETAIL cities;",
+      "display(dbutils.fs.ls(f\"{path}\"))"
+    ],
+    "expected_answers": 1,
+    "answers": 1
+  },
+  "23": {
+    "questions": "A data engineer wants to create an empty Delta table called student if it hasn’t already been created.\n<br/>Which of the following will create a new table named student regardless of whether another table with the same name has already been created? Select one response.",
+    "choices": [
+      "CREATE TABLE IF NOT EXISTS student AS SELECT * FROM student",
+      "CREATE TABLE student (id INT, name STRING, age INT);",
+      "CREATE TABLE IF NOT EXISTS student (id INT, name STRING, age INT);",
+      "OVERWRITE TABLE student (id INT, name STRING, age INT);",
+      "CREATE OR REPLACE TABLE student (id INT, name STRING, age INT);"
+    ],
+    "expected_answers": 1,
+    "answers": 5
+  },
+  "24": {
+    "questions": "Which of the following SQL commands can be used to remove a schema (database) at a specified location? Select two responses.\n",
+    "choices": [
+      "DROP DATABASE",
+      "REMOVE DATABASE",
+      "DROP SCHEMA",
+      "DELETE DATABASE",
+      "DELETE SCHEMA"
+    ],
+    "expected_answers": 2,
+    "answers": [1,3]
+  }
+}
