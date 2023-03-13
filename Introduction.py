@@ -12,7 +12,7 @@ st.markdown("")
 st.markdown("")
 st.markdown("")
 st.markdown(
-    "### Welcome to the Databricks exam generator. Here you can generate exams and test your "
-    "knowledge on any topic about Databricks."
+    "### Welcome to the Databricks data engineer associate exam generator. Here you can generate exams and test your "
+    "knowledge on any theme about data engineering on Databricks."
 )
-st.markdown("### Select the certification you are interested in on the sidebar to start.")
+st.markdown("### Select the certification on the sidebar to start.")
