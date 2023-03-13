@@ -9,7 +9,7 @@
       "Commands outside of DLT will return snapshot results from DLT tables only if they were defined as a streaming table."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 2
   },
   "1": {
     "questions": "A data engineer needs to add a file path to their DLT pipeline. They want to use the file path throughout the pipeline as a parameter for various statements and functions.\n\nWhich of the following options can be specified during the configuration of a DLT pipeline in order to allow this? Select one response.\n",
@@ -21,7 +21,7 @@
       "They can add a widget to the notebook and then perform a string substitution of the file path."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 3
   },
   "2": {
     "questions": "A data engineer wants to retrieve metrics on the latest update made to their pipeline. The pipeline has multiple data sources. Despite the input data sources having low data retention, the data engineer needs to retain the results of their code indefinitely.\n\nWhich of the following statements identifies the type of table that needs to be used and why? Select one response.\n",
@@ -33,7 +33,7 @@
       "Streaming live table; streaming live tables are always \"correct\", meaning their contents will match their definition after any update."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 2
   },
   "3": {
     "questions": "Which of the following statements accurately describes the difference in behavior between live views and live tables? Select one response.",
@@ -45,7 +45,7 @@
       "The results of live tables are stored to disk, while the results of views can only be referenced from within the DLT pipeline in which they are defined."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 5
   },
   "4": {
     "questions": "A data engineer needs to examine how data is flowing through tables within their pipeline.\n\nWhich of the following correctly describes how they can accomplish this? Select one response.\n",
@@ -57,7 +57,7 @@
       "The data engineer can retrieve the flow definition for the direct successor of the table and then combine the results."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 4
   },
   "5": {
     "questions": "Which of the following are advantages of using a Delta Live Tables (DLT) pipeline over a traditional ETL pipeline in Databricks? Select two responses.",
@@ -69,7 +69,7 @@
       "DLT has built-in quality controls and data quality monitoring."
     ],
     "expected_answers": 2,
-    "answers": []
+    "answers": [1,5]
   },
   "6": {
     "questions": "data engineer has a Delta Live Tables (DLT) pipeline that uses a change data capture (CDC) data source. They need to write a quality enforcement rule that ensures that records containing the values INSERT or UPDATE in the operation column cannot contain a null value in the name column. The operation column can contain one of three values: INSERT, UPDATE, and DELETE. If the constraint is violated, then the entire transaction needs to fail.\n\nWhich of the following constraints can the data engineer use to enforce this rule? Select one response.\n",
@@ -81,7 +81,7 @@
       "CONSTRAINT valid_name EXPECT (name IS NOT NULL or operation = \"DELETE\") ON VIOLATION DROP ROW"
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 2
   },
   "7": {
     "questions": "A data engineer is running a Delta Live Tables (DLT) notebook. However, in the first command they notice the following error:\n\nError:\n\nModuleNotFoundError: No module named 'dlt'\n\nWhich of the following statements explains this message? Select one response.\n",
@@ -93,7 +93,7 @@
       "DLT does not support the execution of Python notebooks."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 1
   },
   "8": {
     "questions": "A data engineer has built and deployed a DLT pipeline. They want to perform an update that writes a batch of data to the output directory.\n\nWhich of the following statements about performing this update is true? Select one response.\n",
@@ -105,7 +105,7 @@
       "All newly arriving data will be continuously processed through their pipeline. Metrics will always be reported for the current run"
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 1
   },
   "9": {
     "questions": "A data engineer has created the following code block to create a streaming live table from orders_bronze.\n\n\n@dlt.table\ndef orders_bronze():\nreturn (\nspark.readStream\n.format(\"cloudFiles\")\n.option(\"cloudFiles.format\", \"json\")\n.option(\"cloudFiles.inferColumnTypes\", True)\n_____\n.select(\nF.current_timestamp().alias(\"processing_time\"),\nF.input_file_name().alias(\"source_file\"),\n\"*\"\n)\n)\n\nWhich of the following lines of code correctly fills in the blank? Assume the variable path represents the string file path to the data source. Select one response.\n",
@@ -117,7 +117,7 @@
       ".read(f\"{path}\")"
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 1
   },
   "10": {
     "questions": "Which of the following data quality metrics are captured through row_epectations in a pipeline’s event log? Select all that apply.\n",
@@ -128,8 +128,8 @@
       "Failed records",
       "Dataset"
     ],
-    "expected_answers": 1,
-    "answers": []
+    "expected_answers": 3,
+    "answers": [2,4,5]
   },
   "11": {
     "questions": "A data engineer needs to identify the cloud provider and region of origin for each event within their DLT pipeline.\n\nWhich of the following approaches allows the data engineer to view this information? Select one response.\n",
@@ -141,7 +141,7 @@
       "The data engineer can view the event details for the pipeline from the resultant Directed Acyclic Graph (DAG)."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 3
   },
   "12": {
     "questions": "A data engineer is creating a live streaming table to be used by other members of their team. They want to indicate that the table contains silver quality data.\n\nWhich of the following describes how the data engineer can clarify this to other members of their team? Select two responses.\n",
@@ -153,7 +153,7 @@
       "None of these answer choices are correct."
     ],
     "expected_answers": 2,
-    "answers": []
+    "answers": [3, 4]
   },
   "13": {
     "questions": "A data engineer has configured and deployed a DLT pipeline that contains an error. The error is thrown at the third stage of the pipeline, but since DLT resolves the order of tables in the pipeline at different steps, they are not sure if the first stage succeeded.\n\nWhich of the following is considered a good practice to determine this? Select one response.\n",
@@ -165,19 +165,19 @@
       "The data engineer can fix the tables from the Directed Acyclic Graph (DAG), starting at their earliest dataset."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 2
   },
   "14": {
     "questions": "A data engineer has created the following code block to create the view subscribed_order_emails from orders_silver and customers_silver.\n\n\n@dlt.view\ndef subscribed_order_emails_v():\nreturn (\ndlt.read(\"orders_silver\").filter(\"notifications = 'Y'\").alias(\"a\")\n_____\n).select(\n\"a.customer_id\",\n\"a.order_id\",\n\"b.email\"\n)\n)\n\n\n",
     "choices": [
-      ".join(",
-      ".join(",
-      ".join(",
-      ".join(",
-      ".join("
+      ".join(dlt.readStream(\"customers_silver\").alias(\"b\"),\non=\"customer_id\"",
+      ".join(dlt.readStream(\"customers_silver\").alias(\"a\"),\non=\"customer_id\"",
+      ".join(dlt.merge(\"customers_silver\").alias(\"b\"),\non=\"customer_id\"",
+      ".join(dlt.read(\"customers_silver\").alias(\"a\"),\non=\"customer_id\"",
+      ".join(dlt.read(\"customers_silver\").alias(\"b\"),\non=\"customer_id\""
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 5
   },
   "15": {
     "questions": "A data engineer is using the following code block to create a live table. After running the code block, they notice an error.\n\n\n@dlt.view\ndef subscribed_order_emails():\nreturn (\ndlt.read(\"orders_silver\").filter(\"notifications = 'Y'\").alias(\"a\")\n.join(\ndlt.read(\"status_silver\").alias(\"b\"),\non=\"status_id\"\n).select(\n\"a.status_id\",\n\"a.order_id\",\n\"b.email\"\n)\n)\n<br/><br/>\nWhich of the following statements correctly identifies the error? Select one response.\n",
@@ -189,7 +189,7 @@
       "\"a.status_id\" needs to be changed to \"b.status_id\" in the .select() function."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 4
   },
   "16": {
     "questions": "Which of the following correctly describes how code from one library notebook can be referenced by code from another library notebook? Select one response.\n",
@@ -201,7 +201,7 @@
       "Within a DLT Pipeline, code in a notebook library can reference tables and views created in another notebook library as long as one notebook library references the other notebook library."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 4
   },
   "17": {
     "questions": "A data engineer wants to retrieve metrics on the latest update made to their pipeline.\n\nWhich of the following approaches allows the data engineer to accomplish this? Select one response.\n",
@@ -213,7 +213,7 @@
       "The data engineer can retrieve the update ID from the audit log where the action type is user_action."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 2
   },
   "18": {
     "questions": "Which of the following correctly describes how to access contents of the table directory? Select one response.",
@@ -225,7 +225,7 @@
       "The contents of the table directory can be viewed through the flow definition’s output dataset."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 4
   },
   "19": {
     "questions": "A data engineer is configuring a new DLT pipeline and is unsure of what mode to choose. They are working with a small batch of unchanging data and need to minimize the costs associated with the pipeline.\n\nWhich of the following modes do they need to use and why? Select one response.\n",
@@ -237,7 +237,7 @@
       "Triggered; triggered pipelines update once and cannot be updated again for 24 hours."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 1
   },
   "20": {
     "questions": "A data engineer has a Delta Live Tables (DLT) pipeline that uses a change data capture (CDC) data source. They need to write a quality enforcement rule that ensures that values in the column operation do not contain null values. If the constraint is violated, the associated records cannot be included in the dataset.\n\nWhich of the following constraints does the data engineer need to use to enforce this rule? Selectone response.\n",
@@ -249,7 +249,7 @@
       "CONSTRAINT valid_operation EXPECT (operation IS NOT NULL) ON VIOLATION DROP ROW"
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 5
   },
   "21": {
     "questions": "Which of the following correctly describes how Auto Loader ingests data? Select one response.",
@@ -261,7 +261,7 @@
       "Auto Loader automatically writes new data files continuously as they land."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 1
   },
   "22": {
     "questions": "A data engineer needs to review the events related to their pipeline and the pipeline’s configurations.\nWhich of the following approaches can the data engineer take to accomplish this? Select one response.\n",
@@ -273,7 +273,7 @@
       "The data engineer can retrieve events of type user_action from the event log."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 5
   },
   "23": {
     "questions": "Which of the following are guaranteed when processing a CDC feed with dlt.apply_changes()? Select all that apply.\n",
@@ -285,7 +285,7 @@
       "dlt.apply_changes() assumes by default that rows will contain inserts and updates."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": [2, 4, 5]
   },
   "24": {
     "questions": "A data engineer has built and deployed a DLT pipeline. They want to see the output for each individual task.\n\nWhich of the following describes how to explore the output for each task in the pipeline? Select one response.\n",
@@ -297,6 +297,6 @@
       "They can specify a folder for the task run details during pipeline configuration."
     ],
     "expected_answers": 1,
-    "answers": []
+    "answers": 4
   }
 }
