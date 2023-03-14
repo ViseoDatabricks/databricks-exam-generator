@@ -168,7 +168,7 @@
     "answers": 2
   },
   "14": {
-    "questions": "A data engineer has created the following code block to create the view subscribed_order_emails from orders_silver and customers_silver.\n\n\n@dlt.view\ndef subscribed_order_emails_v():\nreturn (\ndlt.read(\"orders_silver\").filter(\"notifications = 'Y'\").alias(\"a\")\n_____\n).select(\n\"a.customer_id\",\n\"a.order_id\",\n\"b.email\"\n)\n)\n\n\n",
+    "questions": "A data engineer has created the following code block to create the view subscribed_order_emails from orders_silver and customers_silver.\n\n\n @dlt.view \n def subscribed_order_emails_v(): \n return ( \n dlt.read(\"orders_silver\").filter(\"notifications = 'Y'\").alias(\"a\") \n _____ \n ).select( \n \"a.customer_id\", \n \"a.order_id\", \n \"b.email\" \n ) \n ) \n\n\n",
     "choices": [
       ".join(dlt.readStream(\"customers_silver\").alias(\"b\"),\non=\"customer_id\"",
       ".join(dlt.readStream(\"customers_silver\").alias(\"a\"),\non=\"customer_id\"",

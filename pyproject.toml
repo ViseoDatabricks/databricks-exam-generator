@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "databricks_exam_generator_20230228"}]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.11"
 pandas = "^1.5.3"
 dynaconf = "^3.1.11"
 streamlit = "^1.19.0"

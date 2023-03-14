@@ -172,7 +172,7 @@
        "answers":1
     },
     "14":{
-       "questions":"A data engineer is registering a table in Databricks using the table users from an external SQL database. One of their colleagues gives them the following code to register the table. However, when the data engineer runs the code, they notice an error.\n\n\nCREATE TABLE users_jdbc\nUSING JDBC\nOPTIONS ( url = \"jdbc:sqlite:${DA.paths.ecommerce_db}\")\n\nWhich of the following correctly identifies why running the code is resulting in an error? Select one response.",
+       "questions":"A data engineer is registering a table in Databricks using the table users from an external SQL database. One of their colleagues gives them the following code to register the table. However, when the data engineer runs the code, they notice an error.\n\n\n CREATE TABLE users_jdbc \n USING JDBC \n OPTIONS ( url = \"jdbc:sqlite:${DA.paths.ecommerce_db}\") \n\n Which of the following correctly identifies why running the code is resulting in an error? Select one response.",
        "choices":[
           "None of these responses correctly identify the cause of the error.",
           "USING JDBC needs to be changed to USING SQL.",
