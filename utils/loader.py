@@ -4,17 +4,6 @@ import streamlit as st
 
 @st.cache_data
 def load_data(exam):
-    """
-        Load data for the specified exam.
-
-        Args:
-            exam (str): The name of the exam.
-
-        Returns:
-            dict: a dictionary containing the data loaded from the JSON files, where each key is the name of a topic and each value
-            is a dictionary containing the questions and their associated data.
-
-        """
     if exam == "Data engineer Associate":
         with open("questions/build_data_pipeline_with_DLT_pyspark.json") as json_file:
             data_build_data_pipeline_with_dlt_pyspark = json.load(json_file)
