@@ -13,7 +13,7 @@ pip install -r requirements.txt
 You can then launch the dashboard with:
 
 ```
-streamlmit run Introduction.py
+streamlit run Introduction.py
 ```
 
 The dashboard should open directly on your default browser but you can access it [here](http://localhost:8501/).
