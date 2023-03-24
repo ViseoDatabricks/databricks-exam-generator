@@ -284,7 +284,7 @@
       "dlt.apply_changes() automatically orders late-arriving records using a user-provided sequencing key.",
       "dlt.apply_changes() assumes by default that rows will contain inserts and updates."
     ],
-    "expected_answers": 1,
+    "expected_answers": 3,
     "answers": [2, 4, 5]
   },
   "24": {
