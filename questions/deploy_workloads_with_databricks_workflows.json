@@ -225,7 +225,7 @@
       "They can view information on the percentage of records that succeeded each data expectation from the audit log."
     ],
     "expected_answers": 2,
-    "answers": [1,2]
+    "answers": [1,4]
   },
   "19": {
     "questions": "A data engineer is running multiple notebooks that are triggered on different job schedules. Each notebook is part of a different task orchestration workflow. They want to use a cluster with the same configuration for each notebook.\n\nWhich of the following describes how the data engineer can use a feature of Workflows to meet the above requirements? Select one response.\n",

@@ -276,7 +276,7 @@
     "answers": 1
   },
   "23": {
-    "questions": "A data engineer wants to create an empty Delta table called student if it hasn’t already been created.\n<br/>Which of the following will create a new table named student regardless of whether another table with the same name has already been created? Select one response.",
+    "questions": "A data engineer wants to create an empty Delta table called student if it hasn’t already been created.\nWhich of the following will create a new table named student regardless of whether another table with the same name has already been created? Select one response.",
     "choices": [
       "CREATE TABLE IF NOT EXISTS student AS SELECT * FROM student",
       "CREATE TABLE student (id INT, name STRING, age INT);",

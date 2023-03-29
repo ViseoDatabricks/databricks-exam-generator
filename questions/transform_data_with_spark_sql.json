@@ -48,7 +48,7 @@
     "answers": [1,3]
   },
   "4": {
-    "questions": "A data engineer has created the following temporary view sales_revenue that joins the dataset sales with a lookup table sales_lookup when sales and sales_lookup have matching values in the sales_id column in both tables.CREATE OR REPLACE TEMP VIEW sales_revenue ASSELECT *FROM (SELECT * FROM sales) a _____ON a.sales_id = b.sales_id;\n\nWhich of the following lines of code correctly fills in the blank? Select one response.",
+    "questions": "A data engineer has created the following temporary view sales_revenue that joins the dataset sales with a lookup table sales_lookup when sales and sales_lookup have matching values in the sales_id column in both tables. \n CREATE OR REPLACE TEMP VIEW sales_revenue AS \n SELECT *FROM (SELECT * FROM sales) a _____ON a.sales_id = b.sales_id; \n\n Which of the following lines of code correctly fills in the blank? Select one response.",
     "choices": [
       "CROSS JOIN sales_lookup b",
       "RIGHT JOIN sales_loookup b",
@@ -96,7 +96,7 @@
     "answers": [1,3]
   },
   "8": {
-    "questions": "A data engineer needs to create and register a user-defined function (UDF) CREATE_USER using the Python function createUser and apply it to array column username in the table users. They have the following lines of code:Lines of code:1. spark.sql(\"SELECT createUser(username) AS user FROM users\")2. spark.sql(\"SELECT CREATE_USER(username) AS user FROM users\")3. spark.udf.register(\"CREATE_USER\", createUser)4. spark.udf.register(createUser(username))In what order do the lines of code above need to be run in a Python session in order to accomplish this? Select one response.",
+    "questions": "A data engineer needs to create and register a user-defined function (UDF) CREATE_USER using the Python function createUser and apply it to array column username in the table users. They have the following lines of code:Lines of code: \n\n 1. spark.sql(\"SELECT createUser(username) AS user FROM users\") \n 2. spark.sql(\"SELECT CREATE_USER(username) AS user FROM users\") \n 3. spark.udf.register(\"CREATE_USER\", createUser) \n 4. spark.udf.register(createUser(username)) \n\n In what order do the lines of code above need to be run in a Python session in order to accomplish this? Select one response.",
     "choices": [
       "2",
       "3, 1",
@@ -180,7 +180,7 @@
     "answers": [2,5]
   },
   "15": {
-    "questions": "A data engineer is registering a table in Databricks using the table users from an external SQL database. One of their colleagues gives them the following code to register the table. However, when the data engineer runs the code, they notice an error.\n\n\nCREATE TABLE users_jdbcUSING JDBCOPTIONS ( url = \"jdbc:sqlite:${DA.paths.ecommerce_db}\")\n\nWhich of the following correctly identifies why running the code is resulting in an error? Select one response.",
+    "questions": "A data engineer is registering a table in Databricks using the table users from an external SQL database. One of their colleagues gives them the following code to register the table. However, when the data engineer runs the code, they notice an error. \n\n\n CREATE TABLE users_jdbc \n USING JDBCOPTIONS ( url = \"jdbc:sqlite:${DA.paths.ecommerce_db}\") \n\n Which of the following correctly identifies why running the code is resulting in an error? Select one response.",
     "choices": [
       "A username and password need to be added to OPTIONS.",
       "USING JDBC needs to be changed to USING SQL.",
@@ -192,7 +192,7 @@
     "answers": 3
   },
   "16": {
-    "questions": "A data engineer has created the table events with the following SQL statement:CREATE TABLE events (user_id string, event_name string, item_id string, events struct&lt;coupon:string, event_id:string, event_revenue:double&gt;);They are using the following code with multiple array transformations to return a result set that shows the unique collection of the columns event_name and items.SELECT user_id, collect_set(event_name) AS event_history, _____FROM eventsGROUP BY user_idWhich of the following lines of code fills in the blank to create the column event_history as a unique collection of events? Select one response.",
+    "questions": "A data engineer has created the table events with the following SQL statement: \n\n CREATE TABLE events (user_id string, event_name string, item_id string, events struct&lt;coupon:string, event_id:string, event_revenue:double&gt;); \n\n They are using the following code with multiple array transformations to return a result set that shows the unique collection of the columns event_name and items. \n\n SELECT user_id, collect_set(event_name) AS event_history, _____FROM events \n GROUP BY user_id \n\n Which of the following lines of code fills in the blank to create the column event_history as a unique collection of events? Select one response.",
     "choices": [
       "flatten(collect_set(explode(events))) AS event_history",
       "flatten(array_distinct(events))) AS event_history",
@@ -276,7 +276,7 @@
     "answers": 4
   },
   "23": {
-    "questions": "A data engineer is using the following query to confirm that each unique string value in the phone_number column in the table users is associated with at most one user_id. When they run the query, they notice that the query is not returning the expected result.SELECT max(user_id_count) &lt;= 1 at_most_one_idFROM (  SELECT   phone_number,   count(distinct(\"user_id\")) AS user_id_count  FROM   users  GROUP BY   phone_number )\n\nWhich of the following explains why the query is not returning the expected result? Select one response.\n",
+    "questions": "A data engineer is using the following query to confirm that each unique string value in the phone_number column in the table users is associated with at most one user_id. When they run the query, they notice that the query is not returning the expected result. \n\n SELECT max(user_id_count) &lt;= 1 at_most_one_id FROM (  SELECT   phone_number,   count(distinct(\"user_id\")) AS user_id_count  FROM   users  GROUP BY   phone_number ) \n\n Which of the following explains why the query is not returning the expected result? Select one response.\n",
     "choices": [
       "A WHERE phone_number IS NOT NULL clause is needed after the FROM users line.",
       "count(distinct(\"user_id\")) needs to be changed to count_if(user_id IS NOT NULL).",

@@ -269,7 +269,7 @@
       "Storage credentials",
       "Tables",
       "Functions",
-      "Eternal locations",
+      "External locations",
       "Views"
     ],
     "expected_answers": 3,
